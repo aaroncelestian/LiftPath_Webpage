@@ -71,15 +71,14 @@
         }
         
         .logo {
-            font-size: 4.5em;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.02em;
+            margin-bottom: 30px;
             animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .logo img {
+            height: 120px;
+            width: auto;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
         }
         
         @keyframes fadeInUp {
@@ -514,8 +513,8 @@
         }
         
         @media (max-width: 768px) {
-            .logo {
-                font-size: 3em;
+            .logo img {
+                height: 80px;
             }
             
             .tagline {
@@ -582,7 +581,9 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">💪 LiftPath</div>
+            <div class="logo">
+                <img src="images/liftpath_logo_dark_1024.png" alt="LiftPath Logo">
+            </div>
             <div class="tagline">Your Personal Workout Tracking Companion</div>
             <p>Track your strength training, cardio activities, and body measurements with complete privacy.</p>
             <div class="app-store-badge">
