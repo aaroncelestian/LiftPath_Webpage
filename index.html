@@ -285,6 +285,190 @@
             gap: 12px;
         }
         
+        .free-highlight {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 4px solid var(--accent);
+            padding: 32px;
+            margin: 40px 0;
+            border-radius: 20px;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            box-shadow: 0 8px 32px rgba(236, 72, 153, 0.1);
+        }
+        
+        .free-highlight h3 {
+            color: #831843;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8em;
+        }
+        
+        .free-highlight .free-badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .free-badge {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05em;
+        }
+        
+        .story-section {
+            margin: 60px 0;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+        
+        .story-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+        }
+        
+        .story-content {
+            position: relative;
+        }
+        
+        .story-image {
+            float: left;
+            width: 400px;
+            margin: 0 40px 30px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .story-image figcaption {
+            padding: 12px;
+            font-size: 0.9em;
+            font-style: italic;
+            color: var(--text-light);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .story-text h3 {
+            color: var(--text-dark);
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        
+        .story-text p {
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+        
+        .story-text p:last-child {
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: 1.1em;
+            color: var(--text-dark);
+        }
+        
+        .getting-started {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 4px solid var(--primary);
+            padding: 40px;
+            margin: 50px 0;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+        }
+        
+        .getting-started h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        
+        .getting-started h3 {
+            color: var(--primary-dark);
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 16px;
+        }
+        
+        .getting-started h3:first-of-type {
+            margin-top: 0;
+        }
+        
+        .getting-started strong {
+            color: var(--text-dark);
+        }
+        
+        .ai-approach {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(236, 72, 153, 0.12) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 4px solid var(--secondary);
+            padding: 40px;
+            margin: 50px 0;
+            border-radius: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.1);
+        }
+        
+        .ai-approach h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        
+        .ai-approach h3 {
+            color: var(--secondary);
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 16px;
+        }
+        
+        .ai-approach h3:first-of-type {
+            margin-top: 0;
+        }
+        
+        .ai-approach .highlight-box {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .ai-approach .highlight-box strong {
+            color: var(--secondary);
+            font-size: 1.05em;
+        }
+        
+        .ai-approach ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .ai-approach li {
+            margin: 12px 0;
+        }
+        
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -583,6 +767,20 @@
                 width: 20px;
                 height: 20px;
             }
+            
+            .story-section {
+                padding: 30px 20px;
+            }
+            
+            .story-image {
+                float: none;
+                width: 100%;
+                margin: 0 0 30px 0;
+            }
+            
+            .story-text h3 {
+                font-size: 1.2em;
+            }
         }
         
         @media (prefers-reduced-motion: reduce) {
@@ -616,6 +814,16 @@
         <div class="content">
             <h2>About LiftPath</h2>
             <p>LiftPath is a comprehensive workout tracking app designed for iOS that helps you log your strength training sessions, cardio activities, and body measurements. Built with privacy in mind, all your data stays on your device.</p>
+
+            <div class="free-highlight">
+                <h3>🎉 100% Free Forever</h3>
+                <div class="free-badges">
+                    <span class="free-badge">💰 No Cost</span>
+                    <span class="free-badge">🚫 No Ads</span>
+                    <span class="free-badge">♾️ Forever Free</span>
+                </div>
+                <p><strong>Why is LiftPath free?</strong> I built this app for myself and have benefited greatly from tracking my fitness journey. I want others to experience the same benefits without barriers. No subscriptions, no ads, no hidden costs—just a tool to help you reach your fitness goals.</p>
+            </div>
 
             <div class="features">
                 <div class="feature">
@@ -783,6 +991,70 @@
                 <li>iPhone or iPad</li>
                 <li>Optional: Apple Health for enhanced features</li>
             </ul>
+
+            <div class="story-section">
+                <h2>Why I Built LiftPath</h2>
+                <div class="story-content">
+                    <figure class="story-image">
+                        <img src="images/aaron_sixpax_show.JPG" alt="Aaron at SixPax Super Show Bodybuilding Competition">
+                        <figcaption>Me on stage, terrified (I turn 50 this year)</figcaption>
+                    </figure>
+                    <div class="story-text">
+                        <h3>FROM COUCH POTATO TO STAGE</h3>
+                        <p>I went from couch potato to standing on stage at the SixPax Super Show Bodybuilding Competition in 18 months. But the beginning was brutal.</p>
+                        <p>The problem wasn't effort—it was perception. I was training consistently, but when I looked in the mirror, I saw nothing changing. Friends and trainers would say "you're making progress," but I didn't believe them. The daily and weekly changes were too small for me to see. I was stuck in a mental trap: working hard but convinced I was failing.</p>
+                        <p>That's when I realized I needed data, not just discipline. I started tracking everything—every rep, every set, every pound lifted. The numbers didn't lie. When the mirror showed me the same person, the data showed progressive overload. Volume was increasing. PRs were falling. The transformation was happening; I just couldn't see it yet.</p>
+                        <p>I built LiftPath during this journey because I needed objective proof of progress. Every feature, every screen, every data point was designed and coded by me—a solo developer who needed this tool to exist. I tested it on myself throughout my entire transformation, refining it based on real training sessions, real struggles, and real breakthroughs. The app helped me and my coaches identify what was working, where I was actually progressing, and where adjustments were needed. Tracking turned frustration into focus. Data turned doubt into determination.</p>
+                        <p>After years of development, refinement, and standing on that stage, I know this approach works. LiftPath is now ready to help others break through the same mental barriers I faced.</p>
+                        <p>No subscriptions, no ads, no hidden costs—just a tool to help you reach your fitness goals with your coach or training approach.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="getting-started">
+                <h2>How to Get Started?</h2>
+                
+                <h3>💡 Working with a Coach</h3>
+                <p>Coaches are not free. But you don't need a full-time personal trainer to get you started. I'd recommend getting online guidance from a PT. Once-a-month visits are relatively inexpensive, and the LiftPath app exports data so your coach can make educated decisions about your programming and progress.</p>
+                
+                <h3>🏋️ Brand New to Weight Training?</h3>
+                <p><strong>If you are brand new to weight training, then you need in-person help. No way around it.</strong> Join a gym for a short time to get the basics and correct form, and then when you feel confident, you can go on your own. Proper form is essential for both safety and results—it's worth the investment to learn it right from the start.</p>
+                
+                <h3>📊 Using LiftPath with Your Approach</h3>
+                <p>Whether you're working with a coach, following a program, or training independently, LiftPath gives you the data to track your progress objectively. Export your workout history to share with trainers, analyze your own trends, or simply have proof that you're moving forward—even when the mirror doesn't show it yet.</p>
+            </div>
+
+            <div class="ai-approach">
+                <h2>My Approach After Years of Training</h2>
+                
+                <h3>🤖 The Secret Sauce: I Use AI</h3>
+                <p>I already know what you're going to say, but hear me out. There is so much fitness and training information available that AI engines have become pretty good at programming. They're conservative (I think overly conservative) in their approaches to training, but that's actually a good thing—especially for injury prevention and sustainable progress.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>This is why I built the JSON data export format.</strong></p>
+                </div>
+                
+                <p>The JSON export contains everything an AI needs to make informed recommendations:</p>
+                <ul>
+                    <li>Complete gym history (every workout, every set, every rep)</li>
+                    <li>Nutrition information</li>
+                    <li>Cardio and martial arts history</li>
+                    <li>Biometrics: weight, body fat percentage, blood pressure, sleep data, and more</li>
+                </ul>
+                
+                <h3>💬 How It Works</h3>
+                <p>I have a conversation with AI about what I want to accomplish, how much time I want to spend in the gym, any injuries or limitations, and my current goals. With all my historical data, it gives me solid, personalized workout recommendations. Even better, the JSON file includes instructions for the AI tool to create properly formatted templates that I can import directly back into LiftPath for the next month of training.</p>
+                
+                <h3>🛠️ My Complete Tech Stack</h3>
+                <ul>
+                    <li><strong>LiftPath:</strong> Workout tracking and data export</li>
+                    <li><strong>MacroFactor:</strong> Food logging and nutrition tracking</li>
+                    <li><strong>Garmin:</strong> Watch, scale, and BP monitor for biometrics</li>
+                    <li><strong>AI Tools:</strong> Programming and workout design based on my complete data</li>
+                </ul>
+                
+                <p>This data-driven approach takes the guesswork out of programming. Instead of wondering if I'm doing the right thing, I have objective evidence and intelligent recommendations based on my actual performance and recovery.</p>
+            </div>
         </div>
 
         <footer>
