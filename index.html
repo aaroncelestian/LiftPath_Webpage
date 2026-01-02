@@ -73,12 +73,26 @@
         .logo {
             margin-bottom: 30px;
             animation: fadeInUp 0.8s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
         
         .logo img {
             height: 120px;
             width: auto;
             filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+        
+        .logo-title {
+            font-size: 4.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
         }
         
         @keyframes fadeInUp {
@@ -517,6 +531,10 @@
                 height: 80px;
             }
             
+            .logo-title {
+                font-size: 3em;
+            }
+            
             .tagline {
                 font-size: 1.35em;
             }
@@ -583,6 +601,7 @@
         <header>
             <div class="logo">
                 <img src="images/liftpath_logo_dark_1024.png" alt="LiftPath Logo">
+                <div class="logo-title">LiftPath</div>
             </div>
             <div class="tagline">Your Personal Workout Tracking Companion</div>
             <p>Track your strength training, cardio activities, and body measurements with complete privacy.</p>
