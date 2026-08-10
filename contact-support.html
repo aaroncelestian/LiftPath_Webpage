@@ -1,374 +1,705 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Support - LiftPath</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --text-dark: #0f172a;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.18);
-            --success: #10b981;
-            --error: #ef4444;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
-            background: #0f172a;
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 90%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
-            z-index: 0;
-            animation: gradientShift 15s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px 60px;
-            color: white;
-        }
-        
-        .logo {
-            margin-bottom: 20px;
-        }
-        
-        .logo img {
-            height: 100px;
-            width: auto;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .back-link:hover {
-            color: white;
-            transform: translateX(-4px);
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-        
-        .subtitle {
-            font-size: 1.15em;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-        
-        .content {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 32px;
-            padding: 50px;
-            margin: 20px 0;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.3),
-                0 0 0 1px var(--glass-border),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .contact-info {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-        
-        .contact-info h2 {
-            color: var(--text-dark);
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        
-        .contact-info p {
-            color: var(--text-light);
-            margin-bottom: 16px;
-        }
-        
-        .email-display {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 12px 20px;
-            border-radius: 12px;
-            font-weight: 500;
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .email-display:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
-        }
-        
-        .form-section h2 {
-            color: var(--text-dark);
-            font-size: 1.5em;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-        
-        .form-group {
-            margin-bottom: 24px;
-        }
-        
-        label {
-            display: block;
-            color: var(--text-dark);
-            font-weight: 500;
-            margin-bottom: 8px;
-            font-size: 0.95em;
-        }
-        
-        .required {
-            color: var(--error);
-        }
-        
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 14px 18px;
-            border: 2px solid rgba(99, 102, 241, 0.2);
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 1em;
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--text-dark);
-            transition: all 0.3s ease;
-        }
-        
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: white;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-        
-        textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        .submit-btn {
-            display: inline-block;
-            padding: 16px 40px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.05em;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-            font-family: inherit;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-        
-        .form-note {
-            margin-top: 20px;
-            padding: 16px;
-            background: rgba(99, 102, 241, 0.05);
-            border-radius: 12px;
-            font-size: 0.9em;
-            color: var(--text-light);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: rgba(255, 255, 255, 0.9);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 60px;
-        }
-        
-        footer a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        footer a:hover {
-            color: white;
-        }
-        
-        @media (max-width: 768px) {
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact Support - LiftPath</title>
+        <meta name="description" content="Get in touch with the LiftPath team for bug reports, feature requests, or general support." />
+        <meta name="theme-color" content="#0f172a" />
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            :root {
+                --primary: #3b82f6;
+                --primary-dark: #1d4ed8;
+                --secondary: #06b6d4;
+                --accent: #a3e635;
+                --text-dark: #0f172a;
+                --text-light: #64748b;
+                --bg-light: #f8fafc;
+                --glass-bg: rgba(255, 255, 255, 0.7);
+                --glass-border: rgba(255, 255, 255, 0.18);
+                --success: #10b981;
+                --error: #ef4444;
+            }
+
+            body {
+                font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                line-height: 1.7;
+                color: var(--text-dark);
+                background: #0f172a;
+                overflow-x: hidden;
+                position: relative;
+                min-height: 100vh;
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                top: -10%;
+                left: -10%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.22) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 90%, rgba(163, 230, 53, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 60% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 45%);
+                z-index: 0;
+                animation: gradientDrift 20s ease-in-out infinite;
+                pointer-events: none;
+            }
+
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+                background-size: 28px 28px;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            @keyframes gradientDrift {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                33% {
+                    transform: translate(3%, -4%) scale(1.08);
+                }
+                66% {
+                    transform: translate(-3%, 3%) scale(1.03);
+                }
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 20px 40px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .site-nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                justify-content: center;
+                padding: 18px 20px;
+                transition: all 0.4s ease;
+            }
+
+            .site-nav-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+                width: 100%;
+                max-width: 1100px;
+                padding: 10px 14px 10px 18px;
+                border-radius: 50px;
+                background: rgba(15, 23, 42, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+            }
+
+            .site-nav-logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: white;
+                font-weight: 700;
+                font-size: 1.1em;
+                text-decoration: none;
+                letter-spacing: -0.01em;
+                flex-shrink: 0;
+            }
+
+            .site-nav-logo img {
+                width: 32px;
+                height: 32px;
+                border-radius: 9px;
+            }
+
+            .site-nav-links {
+                display: flex;
+                align-items: center;
+                gap: 28px;
+            }
+
+            .site-nav-links a {
+                color: rgba(255, 255, 255, 0.75);
+                text-decoration: none;
+                font-size: 0.95em;
+                font-weight: 500;
+                transition: color 0.25s ease;
+            }
+
+            .site-nav-links a:hover {
+                color: white;
+            }
+
+            .site-nav-cta {
+                display: inline-flex;
+                align-items: center;
+                white-space: nowrap;
+                padding: 10px 22px;
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                color: white;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 0.9em;
+                box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+                transition: all 0.3s ease;
+                flex-shrink: 0;
+            }
+
+            .site-nav-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 28px rgba(59, 130, 246, 0.55);
+            }
+
+            @media (max-width: 768px) {
+                .site-nav-links {
+                    display: none;
+                }
+
+                .site-nav-inner {
+                    padding: 8px 8px 8px 14px;
+                }
+            }
+
+            header {
+                text-align: center;
+                padding: 130px 20px 40px;
+                color: white;
+            }
+
+            .logo {
+                margin-bottom: 20px;
+            }
+
             .logo img {
-                height: 70px;
+                height: 90px;
+                width: 90px;
+                border-radius: 20px;
+                filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+                animation: fadeInUp 0.8s ease-out;
             }
-            
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .hero-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 20px;
+                border-radius: 50px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                font-size: 0.85em;
+                font-weight: 600;
+                color: #dbeafe;
+                margin-bottom: 20px;
+                animation: fadeInUp 0.8s ease-out 0.15s backwards;
+            }
+
             h1 {
-                font-size: 2em;
+                font-size: 2.5em;
+                font-weight: 800;
+                background: linear-gradient(135deg, #fff 0%, #dbeafe 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 16px;
+                letter-spacing: -0.02em;
+                animation: fadeInUp 0.8s ease-out 0.3s backwards;
             }
-            
+
+            .subtitle {
+                font-size: 1.15em;
+                opacity: 0.85;
+                font-weight: 300;
+                animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            }
+
             .content {
-                padding: 30px 24px;
+                background: var(--glass-bg);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-radius: 32px;
+                padding: 50px;
+                margin: 0 0 40px;
+                box-shadow:
+                    0 20px 60px rgba(0, 0, 0, 0.3),
+                    0 0 0 1px var(--glass-border),
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
             }
-            
-            footer a {
+
+            .contact-info {
+                background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 20px;
+                padding: 24px;
+                margin-bottom: 40px;
+                border: 1px solid rgba(59, 130, 246, 0.2);
+            }
+
+            .contact-info h2 {
+                color: var(--text-dark);
+                font-size: 1.3em;
+                font-weight: 600;
+                margin-bottom: 12px;
+            }
+
+            .contact-info p {
+                color: var(--text-light);
+                margin-bottom: 16px;
+            }
+
+            .email-display {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255, 255, 255, 0.6);
+                padding: 12px 20px;
+                border-radius: 12px;
+                font-weight: 500;
+                color: var(--primary);
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .email-display:hover {
+                background: rgba(255, 255, 255, 0.8);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            }
+
+            .form-section h2 {
+                color: var(--text-dark);
+                font-size: 1.5em;
+                font-weight: 600;
+                margin-bottom: 24px;
+            }
+
+            .form-group {
+                margin-bottom: 24px;
+            }
+
+            label {
                 display: block;
-                margin: 12px 0;
+                color: var(--text-dark);
+                font-weight: 500;
+                margin-bottom: 8px;
+                font-size: 0.95em;
             }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <a href="index.html" class="back-link">← Back to Home</a>
-            <div class="logo">
-                <img src="images/liftpath_logo_dark_1024.png" alt="LiftPath Logo">
+
+            .required {
+                color: var(--error);
+            }
+
+            input[type="text"],
+            input[type="email"],
+            textarea,
+            select {
+                width: 100%;
+                padding: 14px 18px;
+                border: 2px solid rgba(59, 130, 246, 0.2);
+                border-radius: 12px;
+                font-family: inherit;
+                font-size: 1em;
+                background: rgba(255, 255, 255, 0.8);
+                color: var(--text-dark);
+                transition: all 0.3s ease;
+            }
+
+            input[type="text"]:focus,
+            input[type="email"]:focus,
+            textarea:focus,
+            select:focus {
+                outline: none;
+                border-color: var(--primary);
+                background: white;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: 150px;
+            }
+
+            .submit-btn {
+                display: inline-block;
+                padding: 16px 40px;
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                color: white;
+                text-decoration: none;
+                border: none;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 1.05em;
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+                font-family: inherit;
+            }
+
+            .submit-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+            }
+
+            .submit-btn:active {
+                transform: translateY(0);
+            }
+
+            .form-note {
+                margin-top: 20px;
+                padding: 16px;
+                background: rgba(59, 130, 246, 0.05);
+                border-radius: 12px;
+                font-size: 0.9em;
+                color: var(--text-light);
+            }
+
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                color: var(--primary-dark);
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 0.95em;
+                margin-top: 30px;
+                transition: all 0.3s ease;
+            }
+
+            .back-link:hover {
+                transform: translateX(-4px);
+            }
+
+            footer {
+                text-align: center;
+                padding: 50px 20px;
+                color: rgba(255, 255, 255, 0.9);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                margin-top: 20px;
+            }
+
+            .footer-brand {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 18px;
+                opacity: 0.9;
+            }
+
+            .footer-brand img {
+                width: 28px;
+                height: 28px;
+                border-radius: 8px;
+            }
+
+            .footer-brand span {
+                font-weight: 700;
+                letter-spacing: -0.01em;
+            }
+
+            footer a {
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
+                margin: 0 15px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+
+            footer a:hover {
+                color: white;
+            }
+
+            .back-to-top {
+                position: fixed;
+                bottom: 28px;
+                right: 28px;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                border: none;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow: 0 10px 30px rgba(59, 130, 246, 0.45);
+                z-index: 90;
+                opacity: 0;
+                transform: translateY(16px) scale(0.9);
+                pointer-events: none;
+                transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .back-to-top.visible {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                pointer-events: auto;
+            }
+
+            .back-to-top:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 14px 36px rgba(59, 130, 246, 0.6);
+            }
+
+            .back-to-top svg {
+                width: 22px;
+                height: 22px;
+                stroke: white;
+                stroke-width: 2.5;
+                fill: none;
+            }
+
+            @media (max-width: 768px) {
+                header {
+                    padding: 110px 20px 30px;
+                }
+
+                .logo img {
+                    height: 70px;
+                    width: 70px;
+                }
+
+                h1 {
+                    font-size: 2em;
+                }
+
+                .content {
+                    padding: 30px 24px;
+                    border-radius: 24px;
+                }
+
+                footer a {
+                    display: block;
+                    margin: 12px 0;
+                }
+            }
+
+            .reveal {
+                opacity: 0;
+                transform: translateY(30px);
+                transition:
+                    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .reveal.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="site-nav" id="siteNav">
+            <div class="site-nav-inner">
+                <a href="index.html" class="site-nav-logo">
+                    <img src="images/logo-l-arrow-dark.png" alt="" />
+                    LiftPath
+                </a>
+                <div class="site-nav-links">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#screenshots">Screenshots</a>
+                </div>
+                <a
+                    href="https://apps.apple.com/us/app/liftpath/id6757255588"
+                    class="site-nav-cta"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Download
+                </a>
             </div>
-            <h1>Contact Support</h1>
-            <p class="subtitle">We're here to help with any questions or issues</p>
-        </header>
+        </nav>
+        <div class="container">
+            <header id="top">
+                <div class="logo">
+                    <img src="images/logo-l-arrow-dark.png" alt="LiftPath Logo" />
+                </div>
+                <div class="hero-badge"><span class="dot"></span> We usually reply within 1-2 business days</div>
+                <h1>Contact Support</h1>
+                <p class="subtitle">We're here to help with any questions or issues</p>
+            </header>
 
-        <div class="content">
-            <div class="form-section">
-                <h2>Send Us a Message</h2>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" required placeholder="Your name">
-                    </div>
+            <div class="content">
+                <div class="contact-info reveal">
+                    <h2>📧 Prefer Email?</h2>
+                    <p>You can reach us directly at:</p>
+                    <a href="mailto:aaron.celestian@gmail.com" class="email-display">
+                        ✉️ aaron.celestian@gmail.com
+                    </a>
+                </div>
 
-                    <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                    </div>
+                <div class="form-section">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="Your name" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="subject">Subject <span class="required">*</span></label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Select a topic...</option>
-                            <option value="Bug Report">Bug Report</option>
-                            <option value="Feature Request">Feature Request</option>
-                            <option value="Technical Support">Technical Support</option>
-                            <option value="Account Issue">Account Issue</option>
-                            <option value="General Inquiry">General Inquiry</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="message">Message <span class="required">*</span></label>
-                        <textarea id="message" name="message" required placeholder="Please describe your question or issue in detail..."></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="subject">Subject <span class="required">*</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic...</option>
+                                <option value="Bug Report">Bug Report</option>
+                                <option value="Feature Request">Feature Request</option>
+                                <option value="Technical Support">Technical Support</option>
+                                <option value="Account Issue">Account Issue</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
 
-                    <button type="submit" class="submit-btn">Send Message</button>
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                required
+                                placeholder="Please describe your question or issue in detail..."></textarea>
+                        </div>
 
-                    <div class="form-note">
-                        <strong>Note:</strong> This form will open your default email client with a pre-filled message. Your email client must be configured to send the message.
-                    </div>
-                </form>
+                        <button type="submit" class="submit-btn">Send Message</button>
+
+                        <div class="form-note">
+                            <strong>Note:</strong> This form will open your default email client with a pre-filled
+                            message. Your email client must be configured to send the message.
+                        </div>
+                    </form>
+                </div>
+
+                <a href="index.html" class="back-link">← Back to Home</a>
             </div>
+
+            <footer>
+                <div class="footer-brand">
+                    <img src="images/logo-l-arrow-dark.png" alt="" />
+                    <span>LiftPath</span>
+                </div>
+                <p>&copy; 2026 Aaron Celestian. All rights reserved.</p>
+                <div>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-use.html">Terms of Use</a>
+                </div>
+            </footer>
         </div>
 
-        <footer>
-            <p>&copy; 2026 LiftPath. All rights reserved.</p>
-            <div>
-                <a href="index.html">Home</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms-of-use.html">Terms of Use</a>
-            </div>
-        </footer>
-    </div>
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <svg viewBox="0 0 24 24">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
-            const mailtoLink = `mailto:aaron.celestian@gmail.com?subject=LiftPath Support: ${encodeURIComponent(subject)}&body=${emailBody}`;
-            
-            window.location.href = mailtoLink;
-        });
-    </script>
-</body>
+        <script>
+            document.getElementById("contactForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const subject = document.getElementById("subject").value;
+                const message = document.getElementById("message").value;
+
+                const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+                const mailtoLink = `mailto:aaron.celestian@gmail.com?subject=LiftPath Support: ${encodeURIComponent(subject)}&body=${emailBody}`;
+
+                window.location.href = mailtoLink;
+            });
+
+            const siteNav = document.getElementById("siteNav");
+            const backToTop = document.getElementById("backToTop");
+
+            function handleScrollUI() {
+                const scrolled = window.scrollY > 40;
+                siteNav.classList.toggle("scrolled", scrolled);
+                backToTop.classList.toggle("visible", window.scrollY > 600);
+            }
+
+            window.addEventListener("scroll", handleScrollUI, { passive: true });
+            handleScrollUI();
+
+            backToTop.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            const revealEls = document.querySelectorAll(".reveal");
+            if ("IntersectionObserver" in window) {
+                const revealObserver = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("is-visible");
+                                revealObserver.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
+                );
+                revealEls.forEach((el) => revealObserver.observe(el));
+            } else {
+                revealEls.forEach((el) => el.classList.add("is-visible"));
+            }
+        </script>
+    </body>
 </html>

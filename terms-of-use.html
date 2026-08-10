@@ -1,290 +1,814 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Use - LiftPath</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .content {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        h2 {
-            color: #667eea;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-        
-        h3 {
-            color: #764ba2;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        
-        p {
-            margin: 15px 0;
-        }
-        
-        ul {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        
-        li {
-            margin: 10px 0;
-        }
-        
-        .warning {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        
-        .warning h3 {
-            color: #856404;
-            margin-top: 0;
-        }
-        
-        .important {
-            background: #f8d7da;
-            border-left: 4px solid #dc3545;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        
-        .important h3 {
-            color: #721c24;
-            margin-top: 0;
-        }
-        
-        .acknowledgment {
-            background: #e7f3ff;
-            border: 2px solid #667eea;
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 10px;
-        }
-        
-        .acknowledgment h2 {
-            margin-top: 0;
-        }
-        
-        .last-updated {
-            color: #666;
-            font-style: italic;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-top: 30px;
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        strong {
-            color: #000;
-        }
-        
-        @media (max-width: 768px) {
-            .content {
-                padding: 20px;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Terms of Use - LiftPath</title>
+        <meta
+            name="description"
+            content="Terms of Use and liability disclaimer for LiftPath, the privacy-first iOS workout tracking app." />
+        <meta name="theme-color" content="#0f172a" />
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
-            
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            :root {
+                --primary: #3b82f6;
+                --primary-dark: #1d4ed8;
+                --secondary: #06b6d4;
+                --accent: #a3e635;
+                --text-dark: #0f172a;
+                --text-light: #64748b;
+                --bg-light: #f8fafc;
+                --glass-bg: rgba(255, 255, 255, 0.7);
+                --glass-border: rgba(255, 255, 255, 0.18);
+            }
+
+            body {
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                line-height: 1.7;
+                color: var(--text-dark);
+                background: #0f172a;
+                overflow-x: hidden;
+                position: relative;
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                top: -10%;
+                left: -10%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.22) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 90%, rgba(163, 230, 53, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 60% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 45%);
+                z-index: 0;
+                animation: gradientDrift 20s ease-in-out infinite;
+                pointer-events: none;
+            }
+
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+                background-size: 28px 28px;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            @keyframes gradientDrift {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                33% {
+                    transform: translate(3%, -4%) scale(1.08);
+                }
+                66% {
+                    transform: translate(-3%, 3%) scale(1.03);
+                }
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 20px 40px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .site-nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                justify-content: center;
+                padding: 18px 20px;
+                transition: all 0.4s ease;
+            }
+
+            .site-nav-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+                width: 100%;
+                max-width: 1100px;
+                padding: 10px 14px 10px 18px;
+                border-radius: 50px;
+                background: rgba(15, 23, 42, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+            }
+
+            .site-nav-logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: white;
+                font-weight: 700;
+                font-size: 1.1em;
+                text-decoration: none;
+                letter-spacing: -0.01em;
+                flex-shrink: 0;
+            }
+
+            .site-nav-logo img {
+                width: 32px;
+                height: 32px;
+                border-radius: 9px;
+            }
+
+            .site-nav-links {
+                display: flex;
+                align-items: center;
+                gap: 28px;
+            }
+
+            .site-nav-links a {
+                color: rgba(255, 255, 255, 0.75);
+                text-decoration: none;
+                font-size: 0.95em;
+                font-weight: 500;
+                transition: color 0.25s ease;
+            }
+
+            .site-nav-links a:hover {
+                color: white;
+            }
+
+            .site-nav-cta {
+                display: inline-flex;
+                align-items: center;
+                white-space: nowrap;
+                padding: 10px 22px;
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                color: white;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 0.9em;
+                box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+                transition: all 0.3s ease;
+                flex-shrink: 0;
+            }
+
+            .site-nav-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 28px rgba(59, 130, 246, 0.55);
+            }
+
+            @media (max-width: 768px) {
+                .site-nav-links {
+                    display: none;
+                }
+
+                .site-nav-inner {
+                    padding: 8px 8px 8px 14px;
+                }
+            }
+
+            header {
+                text-align: center;
+                padding: 130px 20px 50px;
+                color: white;
+            }
+
+            .logo img {
+                height: 90px;
+                width: 90px;
+                border-radius: 20px;
+                filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+                animation: fadeInUp 0.8s ease-out;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .hero-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 20px;
+                border-radius: 50px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                font-size: 0.85em;
+                font-weight: 600;
+                color: #dbeafe;
+                margin: 24px 0 20px;
+                animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            }
+
             h1 {
-                font-size: 2em;
+                font-size: 2.6em;
+                font-weight: 800;
+                background: linear-gradient(135deg, #fff 0%, #dbeafe 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                letter-spacing: -0.02em;
+                margin-bottom: 12px;
+                animation: fadeInUp 0.8s ease-out 0.3s backwards;
             }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Terms of Use & Liability Disclaimer</h1>
-            <p>LiftPath - Workout Tracking Made Simple</p>
-        </header>
 
-        <div class="content">
-            <p class="last-updated"><strong>Last Updated:</strong> December 21, 2025</p>
+            header > p {
+                font-size: 1.1em;
+                opacity: 0.85;
+                font-weight: 300;
+                animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            }
 
-            <h2>Acceptance of Terms</h2>
-            <p>By downloading, installing, or using LiftPath ("the App"), you agree to be bound by these Terms of Use. If you do not agree to these terms, do not use the App.</p>
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                color: rgba(255, 255, 255, 0.75);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 0.95em;
+                transition: all 0.3s ease;
+            }
 
-            <h2>Purpose of the App</h2>
-            <p>LiftPath is a workout tracking and exercise logging application designed to help users record their fitness activities, including:</p>
-            <ul>
-                <li>Strength training workouts and exercises</li>
-                <li>Cardio and sports activities</li>
-                <li>Body measurements and metrics</li>
-                <li>Personal records and progress tracking</li>
-            </ul>
+            .back-link:hover {
+                color: white;
+                transform: translateX(-4px);
+            }
 
-            <div class="warning">
-                <h3>⚠️ Important</h3>
-                <p><strong>LiftPath is NOT a fitness guidance or coaching application.</strong> The App does not provide personalized fitness plans, workout programs, or health goals.</p>
+            .content {
+                background: var(--glass-bg);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-radius: 32px;
+                padding: 56px;
+                margin: 0 0 40px;
+                box-shadow:
+                    0 20px 60px rgba(0, 0, 0, 0.3),
+                    0 0 0 1px var(--glass-border),
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .last-updated {
+                color: var(--text-light);
+                font-style: italic;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-top: 34px;
+                margin-bottom: 16px;
+                font-size: 1.7em;
+                font-weight: 700;
+                letter-spacing: -0.01em;
+            }
+
+            h2:first-of-type {
+                margin-top: 0;
+            }
+
+            h3 {
+                color: var(--text-dark);
+                margin-top: 22px;
+                margin-bottom: 12px;
+                font-size: 1.2em;
+                font-weight: 600;
+            }
+
+            p {
+                color: var(--text-light);
+                font-size: 1.02em;
+                margin: 14px 0;
+            }
+
+            ul,
+            ol {
+                margin: 14px 0;
+                padding-left: 0;
+                list-style: none;
+            }
+
+            li {
+                margin: 10px 0;
+                padding-left: 30px;
+                position: relative;
+                color: var(--text-light);
+            }
+
+            li::before {
+                content: "→";
+                position: absolute;
+                left: 0;
+                color: var(--primary);
+                font-weight: 600;
+            }
+
+            ol {
+                counter-reset: item;
+            }
+
+            ol li::before {
+                content: counter(item) ".";
+                counter-increment: item;
+                font-weight: 700;
+                color: var(--primary);
+            }
+
+            strong {
+                color: var(--text-dark);
+            }
+
+            .warning {
+                background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.15) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-left: 4px solid #f59e0b;
+                padding: 28px;
+                margin: 24px 0;
+                border-radius: 20px;
+                border: 1px solid rgba(251, 191, 36, 0.2);
+                box-shadow: 0 8px 32px rgba(245, 158, 11, 0.1);
+            }
+
+            .warning h3 {
+                color: #92400e;
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .important {
+                background: linear-gradient(135deg, rgba(239, 68, 68, 0.14) 0%, rgba(220, 38, 38, 0.14) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-left: 4px solid #ef4444;
+                padding: 28px;
+                margin: 24px 0;
+                border-radius: 20px;
+                border: 1px solid rgba(239, 68, 68, 0.2);
+                box-shadow: 0 8px 32px rgba(239, 68, 68, 0.1);
+            }
+
+            .important h3 {
+                color: #7f1d1d;
+                margin-top: 0;
+            }
+
+            .acknowledgment {
+                background: linear-gradient(135deg, rgba(59, 130, 246, 0.14) 0%, rgba(6, 182, 212, 0.14) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(59, 130, 246, 0.25);
+                box-shadow: 0 8px 32px rgba(59, 130, 246, 0.12);
+                padding: 34px;
+                margin: 30px 0;
+                border-radius: 20px;
+            }
+
+            .acknowledgment h2 {
+                margin-top: 0;
+            }
+
+            footer {
+                text-align: center;
+                padding: 50px 20px;
+                color: rgba(255, 255, 255, 0.9);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                margin-top: 20px;
+            }
+
+            .footer-brand {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 18px;
+                opacity: 0.9;
+            }
+
+            .footer-brand img {
+                width: 28px;
+                height: 28px;
+                border-radius: 8px;
+            }
+
+            .footer-brand span {
+                font-weight: 700;
+                letter-spacing: -0.01em;
+            }
+
+            footer a {
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
+                margin: 0 20px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+
+            footer a:hover {
+                color: white;
+            }
+
+            .back-to-top {
+                position: fixed;
+                bottom: 28px;
+                right: 28px;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                border: none;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow: 0 10px 30px rgba(59, 130, 246, 0.45);
+                z-index: 90;
+                opacity: 0;
+                transform: translateY(16px) scale(0.9);
+                pointer-events: none;
+                transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .back-to-top.visible {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                pointer-events: auto;
+            }
+
+            .back-to-top:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 14px 36px rgba(59, 130, 246, 0.6);
+            }
+
+            .back-to-top svg {
+                width: 22px;
+                height: 22px;
+                stroke: white;
+                stroke-width: 2.5;
+                fill: none;
+            }
+
+            @media (max-width: 768px) {
+                header {
+                    padding: 110px 20px 30px;
+                }
+
+                h1 {
+                    font-size: 1.9em;
+                }
+
+                .content {
+                    padding: 32px 24px;
+                    border-radius: 24px;
+                }
+
+                footer a {
+                    display: block;
+                    margin: 12px 0;
+                }
+            }
+
+            .reveal {
+                opacity: 0;
+                transform: translateY(30px);
+                transition:
+                    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .reveal.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="site-nav" id="siteNav">
+            <div class="site-nav-inner">
+                <a href="index.html" class="site-nav-logo">
+                    <img src="images/logo-l-arrow-dark.png" alt="" />
+                    LiftPath
+                </a>
+                <div class="site-nav-links">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#screenshots">Screenshots</a>
+                </div>
+                <a
+                    href="https://apps.apple.com/us/app/liftpath/id6757255588"
+                    class="site-nav-cta"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Download
+                </a>
             </div>
+        </nav>
+        <div class="container">
+            <header id="top">
+                <div class="logo">
+                    <img src="images/logo-l-arrow-dark.png" alt="LiftPath Logo" />
+                </div>
+                <div class="hero-badge"><span class="dot"></span> Last Updated: December 21, 2025</div>
+                <h1>Terms of Use &amp; Liability Disclaimer</h1>
+                <p>LiftPath — Workout Tracking Made Simple</p>
+            </header>
 
-            <h2>Medical Disclaimer and Liability</h2>
-            
-            <div class="important">
-                <h3>Consult Your Doctor</h3>
-                <p><strong>BEFORE STARTING ANY NEW EXERCISE ROUTINE, CONSULT WITH YOUR DOCTOR OR HEALTHCARE PROVIDER.</strong> This is especially important if you:</p>
+            <div class="content">
+                <h2>Acceptance of Terms</h2>
+                <p>
+                    By downloading, installing, or using LiftPath ("the App"), you agree to be bound by these Terms
+                    of Use. If you do not agree to these terms, do not use the App.
+                </p>
+
+                <h2>Purpose of the App</h2>
+                <p>
+                    LiftPath is a workout tracking and exercise logging application designed to help users record
+                    their fitness activities, including:
+                </p>
                 <ul>
-                    <li>Have any pre-existing medical conditions</li>
-                    <li>Are taking any medications</li>
-                    <li>Have a history of heart disease, high blood pressure, or other cardiovascular conditions</li>
-                    <li>Are pregnant or nursing</li>
-                    <li>Have any injuries or physical limitations</li>
-                    <li>Are over 40 years old and have been inactive</li>
-                    <li>Have any concerns about your ability to exercise safely</li>
+                    <li>Strength training workouts and exercises</li>
+                    <li>Cardio and sports activities</li>
+                    <li>Body measurements and metrics</li>
+                    <li>Personal records and progress tracking</li>
                 </ul>
+
+                <div class="warning reveal">
+                    <h3>⚠️ Important</h3>
+                    <p>
+                        <strong>LiftPath is NOT a fitness guidance or coaching application.</strong> The App does not
+                        provide personalized fitness plans, workout programs, or health goals.
+                    </p>
+                </div>
+
+                <h2>Medical Disclaimer and Liability</h2>
+
+                <div class="important reveal">
+                    <h3>Consult Your Doctor</h3>
+                    <p>
+                        <strong
+                            >BEFORE STARTING ANY NEW EXERCISE ROUTINE, CONSULT WITH YOUR DOCTOR OR HEALTHCARE
+                            PROVIDER.</strong
+                        >
+                        This is especially important if you:
+                    </p>
+                    <ul>
+                        <li>Have any pre-existing medical conditions</li>
+                        <li>Are taking any medications</li>
+                        <li>Have a history of heart disease, high blood pressure, or other cardiovascular conditions</li>
+                        <li>Are pregnant or nursing</li>
+                        <li>Have any injuries or physical limitations</li>
+                        <li>Are over 40 years old and have been inactive</li>
+                        <li>Have any concerns about your ability to exercise safely</li>
+                    </ul>
+                </div>
+
+                <h3>No Medical or Fitness Advice</h3>
+                <p>
+                    LiftPath does not provide medical advice, fitness guidance, or health recommendations. The App is
+                    solely for recording and tracking your exercise data. Any information provided in the App,
+                    including exercise technique descriptions, is for informational purposes only and should not be
+                    considered professional advice.
+                </p>
+
+                <h3>Exercise Technique Information</h3>
+                <p>The App may include descriptions of proper exercise technique and form. These descriptions are:</p>
+                <ul>
+                    <li><strong>Guidelines only</strong> - not personalized instruction</li>
+                    <li><strong>General information</strong> - not a substitute for professional coaching</li>
+                    <li><strong>Educational content</strong> - not comprehensive training programs</li>
+                </ul>
+
+                <p>You are solely responsible for:</p>
+                <ul>
+                    <li>Learning proper exercise technique from qualified professionals</li>
+                    <li>Using appropriate form and technique during exercises</li>
+                    <li>Selecting appropriate weights and intensity levels</li>
+                    <li>Ensuring your safety during all physical activities</li>
+                </ul>
+
+                <h3>Assumption of Risk</h3>
+                <p>
+                    <strong>YOU ASSUME ALL RISKS ASSOCIATED WITH EXERCISE AND PHYSICAL ACTIVITY.</strong> By using
+                    LiftPath, you acknowledge that:
+                </p>
+                <ul>
+                    <li>Physical exercise involves inherent risks of injury</li>
+                    <li>You are voluntarily participating in physical activities</li>
+                    <li>You are responsible for your own safety</li>
+                    <li>You will exercise within your physical capabilities</li>
+                    <li>You will stop exercising if you experience pain, dizziness, or discomfort</li>
+                </ul>
+
+                <h3>Limitation of Liability</h3>
+                <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
+                <p>
+                    <strong
+                        >The developers, owners, and distributors of LiftPath SHALL NOT BE LIABLE for any injuries,
+                        damages, or losses resulting from:</strong
+                    >
+                </p>
+                <ul>
+                    <li>Your use of the App</li>
+                    <li>Your participation in exercise or physical activity</li>
+                    <li>Any information provided in the App</li>
+                    <li>Reliance on exercise technique descriptions</li>
+                    <li>Equipment failure or malfunction</li>
+                    <li>Any other circumstances related to your fitness activities</li>
+                </ul>
+
+                <p>
+                    <strong>You agree to release, indemnify, and hold harmless</strong> the App developers, owners,
+                    and distributors from any and all claims, damages, or expenses arising from your use of the App
+                    or participation in exercise activities.
+                </p>
+
+                <h2>Data Recording Only</h2>
+                <p>LiftPath is a data recording tool. The App:</p>
+                <ul>
+                    <li>Does NOT create workout plans for you</li>
+                    <li>Does NOT set fitness goals for you</li>
+                    <li>Does NOT provide coaching or training advice</li>
+                    <li>Does NOT monitor your health status</li>
+                    <li>Does NOT provide medical guidance</li>
+                </ul>
+                <p>
+                    Any workout templates or programs you import or create are your own responsibility or provided by
+                    your personal coach or trainer.
+                </p>
+
+                <h2>User Responsibilities</h2>
+                <p>You are responsible for:</p>
+                <ul>
+                    <li><strong>Safety:</strong> Ensuring your safety during all exercise activities</li>
+                    <li><strong>Equipment:</strong> Using appropriate, well-maintained equipment</li>
+                    <li><strong>Environment:</strong> Exercising in safe environments</li>
+                    <li><strong>Technique:</strong> Learning and using proper exercise form</li>
+                    <li><strong>Intensity:</strong> Selecting appropriate weights and intensity levels</li>
+                    <li><strong>Health monitoring:</strong> Listening to your body and stopping if you experience problems</li>
+                    <li><strong>Professional guidance:</strong> Seeking qualified instruction when needed</li>
+                </ul>
+
+                <h2>No Warranties</h2>
+                <p>
+                    THE APP IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+                    LIMITED TO:
+                </p>
+                <ul>
+                    <li>Accuracy of information</li>
+                    <li>Fitness for a particular purpose</li>
+                    <li>Reliability of data recording</li>
+                    <li>Uninterrupted operation</li>
+                </ul>
+
+                <h2>Age Restrictions</h2>
+                <p>
+                    LiftPath is intended for users aged 13 and older. Users under 18 should have parental consent
+                    before using the App and beginning any exercise program.
+                </p>
+
+                <h2>Changes to Terms</h2>
+                <p>
+                    We reserve the right to modify these Terms of Use at any time. Continued use of the App after
+                    changes constitutes acceptance of the modified terms.
+                </p>
+
+                <h2>Contact</h2>
+                <p>
+                    For questions about these Terms of Use, contact:
+                    <a href="mailto:aaron.celestian@gmail.com?subject=LiftPath%20Terms%20of%20Use">aaron.celestian@gmail.com</a>
+                </p>
+
+                <div class="acknowledgment reveal">
+                    <h2>ACKNOWLEDGMENT</h2>
+                    <p><strong>BY USING LIFTPATH, YOU ACKNOWLEDGE THAT:</strong></p>
+                    <ol>
+                        <li>You have read and understood these Terms of Use</li>
+                        <li>You agree to consult your doctor before starting any exercise program</li>
+                        <li>You understand that exercise involves inherent risks</li>
+                        <li>You assume all responsibility for your safety during physical activities</li>
+                        <li>You release the App developers from all liability related to your use of the App</li>
+                        <li>You understand that LiftPath is for data recording only, not fitness guidance</li>
+                        <li>You will use exercise technique information as guidelines only</li>
+                        <li>You are responsible for learning proper form from qualified professionals</li>
+                    </ol>
+                    <p style="text-align: center; margin-top: 20px; font-size: 1.2em">
+                        <strong>STAY SAFE. TRAIN SMART. TRACK YOUR PROGRESS.</strong>
+                    </p>
+                </div>
+
+                <a href="index.html" class="back-link">← Back to Home</a>
             </div>
 
-            <h3>No Medical or Fitness Advice</h3>
-            <p>LiftPath does not provide medical advice, fitness guidance, or health recommendations. The App is solely for recording and tracking your exercise data. Any information provided in the App, including exercise technique descriptions, is for informational purposes only and should not be considered professional advice.</p>
-
-            <h3>Exercise Technique Information</h3>
-            <p>The App may include descriptions of proper exercise technique and form. These descriptions are:</p>
-            <ul>
-                <li><strong>Guidelines only</strong> - not personalized instruction</li>
-                <li><strong>General information</strong> - not a substitute for professional coaching</li>
-                <li><strong>Educational content</strong> - not comprehensive training programs</li>
-            </ul>
-
-            <p>You are solely responsible for:</p>
-            <ul>
-                <li>Learning proper exercise technique from qualified professionals</li>
-                <li>Using appropriate form and technique during exercises</li>
-                <li>Selecting appropriate weights and intensity levels</li>
-                <li>Ensuring your safety during all physical activities</li>
-            </ul>
-
-            <h3>Assumption of Risk</h3>
-            <p><strong>YOU ASSUME ALL RISKS ASSOCIATED WITH EXERCISE AND PHYSICAL ACTIVITY.</strong> By using LiftPath, you acknowledge that:</p>
-            <ul>
-                <li>Physical exercise involves inherent risks of injury</li>
-                <li>You are voluntarily participating in physical activities</li>
-                <li>You are responsible for your own safety</li>
-                <li>You will exercise within your physical capabilities</li>
-                <li>You will stop exercising if you experience pain, dizziness, or discomfort</li>
-            </ul>
-
-            <h3>Limitation of Liability</h3>
-            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
-            <p><strong>The developers, owners, and distributors of LiftPath SHALL NOT BE LIABLE for any injuries, damages, or losses resulting from:</strong></p>
-            <ul>
-                <li>Your use of the App</li>
-                <li>Your participation in exercise or physical activity</li>
-                <li>Any information provided in the App</li>
-                <li>Reliance on exercise technique descriptions</li>
-                <li>Equipment failure or malfunction</li>
-                <li>Any other circumstances related to your fitness activities</li>
-            </ul>
-
-            <p><strong>You agree to release, indemnify, and hold harmless</strong> the App developers, owners, and distributors from any and all claims, damages, or expenses arising from your use of the App or participation in exercise activities.</p>
-
-            <h2>Data Recording Only</h2>
-            <p>LiftPath is a data recording tool. The App:</p>
-            <ul>
-                <li>Does NOT create workout plans for you</li>
-                <li>Does NOT set fitness goals for you</li>
-                <li>Does NOT provide coaching or training advice</li>
-                <li>Does NOT monitor your health status</li>
-                <li>Does NOT provide medical guidance</li>
-            </ul>
-            <p>Any workout templates or programs you import or create are your own responsibility or provided by your personal coach or trainer.</p>
-
-            <h2>User Responsibilities</h2>
-            <p>You are responsible for:</p>
-            <ul>
-                <li><strong>Safety:</strong> Ensuring your safety during all exercise activities</li>
-                <li><strong>Equipment:</strong> Using appropriate, well-maintained equipment</li>
-                <li><strong>Environment:</strong> Exercising in safe environments</li>
-                <li><strong>Technique:</strong> Learning and using proper exercise form</li>
-                <li><strong>Intensity:</strong> Selecting appropriate weights and intensity levels</li>
-                <li><strong>Health monitoring:</strong> Listening to your body and stopping if you experience problems</li>
-                <li><strong>Professional guidance:</strong> Seeking qualified instruction when needed</li>
-            </ul>
-
-            <h2>No Warranties</h2>
-            <p>THE APP IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
-            <ul>
-                <li>Accuracy of information</li>
-                <li>Fitness for a particular purpose</li>
-                <li>Reliability of data recording</li>
-                <li>Uninterrupted operation</li>
-            </ul>
-
-            <h2>Age Restrictions</h2>
-            <p>LiftPath is intended for users aged 13 and older. Users under 18 should have parental consent before using the App and beginning any exercise program.</p>
-
-            <h2>Changes to Terms</h2>
-            <p>We reserve the right to modify these Terms of Use at any time. Continued use of the App after changes constitutes acceptance of the modified terms.</p>
-
-            <h2>Contact</h2>
-            <p>For questions about these Terms of Use, contact: <a href="mailto:aaron.celestian@gmail.com?subject=LiftPath%20Terms%20of%20Use">aaron.celestian@gmail.com</a></p>
-
-            <div class="acknowledgment">
-                <h2>ACKNOWLEDGMENT</h2>
-                <p><strong>BY USING LIFTPATH, YOU ACKNOWLEDGE THAT:</strong></p>
-                <ol>
-                    <li>You have read and understood these Terms of Use</li>
-                    <li>You agree to consult your doctor before starting any exercise program</li>
-                    <li>You understand that exercise involves inherent risks</li>
-                    <li>You assume all responsibility for your safety during physical activities</li>
-                    <li>You release the App developers from all liability related to your use of the App</li>
-                    <li>You understand that LiftPath is for data recording only, not fitness guidance</li>
-                    <li>You will use exercise technique information as guidelines only</li>
-                    <li>You are responsible for learning proper form from qualified professionals</li>
-                </ol>
-                <p style="text-align: center; margin-top: 20px; font-size: 1.2em;"><strong>STAY SAFE. TRAIN SMART. TRACK YOUR PROGRESS.</strong></p>
-            </div>
-
-            <a href="index.html" class="back-link">← Back to Home</a>
+            <footer>
+                <div class="footer-brand">
+                    <img src="images/logo-l-arrow-dark.png" alt="" />
+                    <span>LiftPath</span>
+                </div>
+                <p>&copy; 2026 Aaron Celestian. All rights reserved.</p>
+                <div>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="contact-support.html">Contact Support</a>
+                </div>
+            </footer>
         </div>
-    </div>
-</body>
+
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <svg viewBox="0 0 24 24">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
+
+        <script>
+            const siteNav = document.getElementById("siteNav");
+            const backToTop = document.getElementById("backToTop");
+
+            function handleScrollUI() {
+                const scrolled = window.scrollY > 40;
+                siteNav.classList.toggle("scrolled", scrolled);
+                backToTop.classList.toggle("visible", window.scrollY > 600);
+            }
+
+            window.addEventListener("scroll", handleScrollUI, { passive: true });
+            handleScrollUI();
+
+            backToTop.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            const revealEls = document.querySelectorAll(".reveal");
+            if ("IntersectionObserver" in window) {
+                const revealObserver = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("is-visible");
+                                revealObserver.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
+                );
+                revealEls.forEach((el) => revealObserver.observe(el));
+            } else {
+                revealEls.forEach((el) => el.classList.add("is-visible"));
+            }
+        </script>
+    </body>
 </html>
